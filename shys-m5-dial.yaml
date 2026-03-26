@@ -51,8 +51,7 @@ logger:
 api:
   homeassistant_states: true
   homeassistant_services: true
-  custom_services: true
-  
+
 ota:
   platform: esphome
 
@@ -62,5 +61,6 @@ ota:
 wifi:
   ssid: ${wifi_ssid}
   password: ${wifi_password}
+  power_save_mode: none
   ap:
     password: "12345678"
