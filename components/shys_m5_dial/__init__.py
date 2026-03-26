@@ -296,6 +296,12 @@ CONFIG_SCHEMA = cv.Schema({
 
 
 async def to_code(config):
+    try:
+        from esphome.components.esp32 import include_builtin_idf_component
+        include_builtin_idf_component("esp_lcd")
+    except ImportError:
+        pass  # ESPHome < 2026.2.0: all IDF components included by default
+
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
 
